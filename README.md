@@ -22,6 +22,8 @@ With this application you will be able to calculate the average amount of words 
 
 `python application.py`
 
+* Go to your local host on port 5000 (http://localhost:5000/)
+
 ## Future Work
 Some ideas to improve the application...
 
