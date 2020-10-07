@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+{{release}} 
+{% endblock %}
+{% block body %}
+    <h2>Songs</h2>
+    {% for song in songs %}
+        <ul style="list-style-type:none">
+            <li> {{song}} </li>
+        </ul>
+    {% endfor %}
+    <form action="{{ url_for('average') }}">
+        <button>Calculate</button>
+    </form>
+    <br>
+     <a href="{{ url_for('index') }}">Return</a>
+
+
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+{{name}} Was Not Found! 
+{% endblock %}
+
+{% block body %}
+    <a href="{{ url_for('index') }}">Return</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+<div>
+    Artist Analizer
+</div>
+{% endblock %}
+
+{% block body %}
+    <p>
+        Enjoy!
+    </p>
+    <form action="{{ url_for('discography') }}" method="post">
+        <div>
+            <input type="text" name = 'name' class="form-control form-control-lg" placeholder="Enter Artist Name">
+        </div>
+        <br>  
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

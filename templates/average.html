@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+The Average Number Of Words 
+{% endblock %}
+
+{% block body %}
+    <h1>{{mean}}</h1>
+    <a href="{{ url_for('index') }}">Return</a>
+{% endblock %}

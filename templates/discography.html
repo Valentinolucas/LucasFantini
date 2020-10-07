@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+{{name}} Discography
+{% endblock %}
+
+{% block body %}
+    <p>
+        Please select an Album!
+    </p>
+    <ul style="list-style-type:none" >
+        {% for record in records %}
+        <li>
+            <a href="{{record}}">{{record}}</a>
+        </li>          
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="{{ url_for('index') }}">Return</a>
+
+
+{% endblock %}
