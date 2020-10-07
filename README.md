@@ -30,7 +30,7 @@ With this application you will be able to calculate the average amount of words 
 ## Future Work
 Some ideas to improve the application...
 
-* Create much more unit test cases to catch bugs and errors.
+* Create much more robust unit test cases to catch bugs and errors.
 
 * Calculate the average for the discography of an artist, using N random tracks from the recordings and appling inferential statistics. We can say that the number of words in N random songs follows a normal distribution so that it is possible to calculate the average for the discography within a confidence interval.
 
