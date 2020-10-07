@@ -25,7 +25,7 @@ With this application you will be able to calculate the average amount of words 
 * Browse to your local host on port 5000 (http://localhost:5000/)
 
 ## Some considerations
-* The API im using to get the lyrics is public with a rate of 100 requests per minute.
+* The API im using to get the lyrics is public with a limit of 100 requests per minute.
 
 ## Future Work
 Some ideas to improve the application...
