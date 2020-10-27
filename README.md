@@ -1,4 +1,4 @@
-# LucasFantini
+# Artist Analizer
 
 ## How it works:
 With this application you will be able to calculate the average amount of words in different albums, just input the artist's name and select the album you want to analyze and the app will do the rest for you.!
