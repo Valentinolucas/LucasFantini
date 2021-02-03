@@ -4,51 +4,52 @@ from ArtistAnalizer import ArtistAnalizer
 
 app = Flask(__name__)
 
-app.config['SESSION_PERMANENT'] = False 
-app.config['SESSION_TYPE'] = 'filesystem'
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    session['artist_name'] = ""  
-    session['songs'] = []
-    return render_template('index.html')
+    session["artist_name"] = ""
+    session["songs"] = []
+    return render_template("index.html")
 
-@app.route('/discography', methods = ['POST'])
+
+@app.route("/discography", methods=["POST"])
 def discography():
-    name = request.form.get('name')
+    name = request.form.get("name")
     name = name.capitalize()
-    session['artist_name'] = name
+    session["artist_name"] = name
     artist = ArtistAnalizer(name)
     id = artist.artistId()
     if id == False:
-        return render_template('notfound.html',name = name)
+        return render_template("notfound.html", name=name)
     records = artist.artistRecords(id)
-    return render_template('discography.html', name = name, records = records)
+    return render_template("discography.html", name=name, records=records)
 
 
-@app.route('/<string:release>', methods= ['GET','POST'])
-def release(release): 
-    artist = ArtistAnalizer(session['artist_name'])
-    songs = artist.releaseSongs(session['artist_name'],release)
+@app.route("/<string:release>", methods=["GET", "POST"])
+def release(release):
+    artist = ArtistAnalizer(session["artist_name"])
+    songs = artist.releaseSongs(session["artist_name"], release)
     if songs != False:
-        session['songs'] = songs
+        session["songs"] = songs
     if songs == False:
-        return render_template('notfound.html')
-    return render_template('songs.html', songs = songs, release = release)
+        return render_template("notfound.html")
+    return render_template("songs.html", songs=songs, release=release)
 
 
-@app.route('/average')
+@app.route("/average")
 def average():
-    print(session['artist_name'])
-    print(session['songs'])
-    artist = ArtistAnalizer(session['artist_name'])
-    print(session['artist_name'])
-    mean = artist.analizeLyrics(session['artist_name'],session['songs'])
-    session['songs'] = []
-    return render_template('average.html', mean = mean)
+    print(session["artist_name"])
+    print(session["songs"])
+    artist = ArtistAnalizer(session["artist_name"])
+    print(session["artist_name"])
+    mean = artist.analizeLyrics(session["artist_name"], session["songs"])
+    session["songs"] = []
+    return render_template("average.html", mean=mean)
 
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(debug=True)
